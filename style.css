@@ -1,5 +1,6 @@
+/* General Styles */
 html {
-    font-size: 35px;
+    font-size: 16px; /* Base font size for better responsiveness */
     background: #4c99f2;
 }
 
@@ -7,43 +8,45 @@ body {
     padding: 0;
     margin: 0;
     text-align: center;
+    font-family: Arial, sans-serif;
 }
 
 h1 {
-    text-align: center;
-    font-size: 100px;
+    font-size: 2.5rem; /* Relative to the base font size */
     line-height: 1;
     margin-bottom: 0;
 }
 
 .score {
-    background:rgb(144, 144, 243);
-    padding: 0 48px;
+    background: rgb(144, 144, 243);
+    padding: 0 1.5rem;
     line-height: 1;
-    border-radius: 16px;
+    border-radius: 1rem;
     color: #fff;
-    margin-left: 15px;
+    margin-left: 1rem;
+    font-size: 1.5rem; /* Relative to the base font size */
 }
 
 .game {
-    width: 600px;
-    height: 400px;
-    display:flex;
-    flex-wrap:wrap;
+    width: 90%;
+    max-width: 600px; /* Maximum width for larger screens */
+    height: auto; /* Adjust height based on width */
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
-    
 }
 
-.hole{
+.hole {
     flex: 1 0 33.33%;
     overflow: hidden;
     position: relative;
+    padding-top: 33.33%; /* Aspect ratio 1:1 for holes */
 }
 
-.hole:after{
-    display:block;
-    background: url(dirt.png) bottom center no-repeat;
-    background-size:contain;
+.hole:after {
+    display: block;
+    background: url('dirt.png') bottom center no-repeat;
+    background-size: contain;
     content: '';
     width: 100%;
     height: 90px;
@@ -62,93 +65,89 @@ h1 {
     transition: all 0.4s;
 }
 
-.hole.up .mole{
-    top:0;
+.hole.up .mole {
+    top: 0;
 }
 
-button{
-    width:175px;
-    font-size: 35px;
+button {
+    width: 175px;
+    font-size: 1.5rem; /* Relative to the base font size */
     height: 70px;
     color: #fff;
     background-color: blue;
     border-radius: 10px;
     margin-left: 20px;
-    margin-top: 90px;
+    margin-top: 1rem;
+    cursor: pointer;
+    border: none;
 }
 
-@media (min-width: 667px) and (max-width: 1024px){
-    
+button:hover {
+    background-color: #005f73;
+}
+
+/* Media Queries for Different Screen Sizes */
+
+/* Tablets and smaller desktops */
+@media (min-width: 667px) and (max-width: 1024px) {
     h1 {
         display: none;
     }
+
     .score {
-    background:blue;
-    padding: 0 12px;
-    line-height: 1;
-    border-radius: 16px;
-    color: #fff;
-    font-size: 40px;
-    margin-left: 20px;
-}
-
-    .hole.up .mole{
-        top:17px;
-    }
-}
-
-@media (max-width: 667px){
-
-    .game {
-        width: 667px;
-        height: 300px;
-        display:flex;
-        flex-wrap:wrap;
-        margin: 0 auto;
+        background: blue;
+        padding: 0 0.75rem;
+        font-size: 1.25rem;
+        margin-left: 1rem;
     }
 
-    .score{
-        width:35px;
-        font-size: 15px;
-        height: 40px;
-        color: #fff;
-        background-color: blue;
-        border-radius: 10px;
-        margin-left: 10px;
-        margin-top: 10px;
-        padding: 5px;
-        }
-
-        button{
-            margin: 10px 10px 10px 10px;
-            height: 40px;
-            width: 75px;
-            font-size: 15px;
-        }
-
-    .hole:after{
-        display:block;
-        background: url(dirt.png) bottom center no-repeat;
-        background-size:contain;
-        content: '';
-        max-width: 70%;
+    .hole:after {
         height: 60px;
-        position: absolute;
-        z-index: 2;
-        bottom: -30px;
     }
 
     .mole {
-        background: url('mole.png') bottom center no-repeat;
-        background-size: 60%;
-        position: absolute;
-        top: 100%;
-        max-width: 70%;
-        height: 70%;
-        transition: all 0.4s;
+        background-size: 70%;
     }
 
-    .hole.up .mole{
-        top:50px;
+    .hole.up .mole {
+        top: 20px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 667px) {
+    .game {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .score {
+        width: auto;
+        font-size: 0.875rem; /* Smaller font size */
+        height: auto;
+        padding: 0.25rem;
+        margin-left: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    button {
+        margin: 0.5rem;
+        height: 40px;
+        width: 100px; /* Adjusted width for smaller screens */
+        font-size: 0.875rem;
+    }
+
+    .hole:after {
+        height: 60px;
+    }
+
+    .mole {
+        background-size: 60%;
+        height: 60%;
+    }
+
+    .hole.up .mole {
+        top: 40px;
     }
 }
