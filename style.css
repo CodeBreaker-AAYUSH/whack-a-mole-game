@@ -1,6 +1,5 @@
-/* General Styles */
-html {
-    font-size: 16px; /* Base font size for better responsiveness */
+ html {
+    font-size: 16px;  
     background: #4c99f2;
 }
 
@@ -12,7 +11,7 @@ body {
 }
 
 h1 {
-    font-size: 2.5rem; /* Relative to the base font size */
+    font-size: 2.5rem;  
     line-height: 1;
     margin-bottom: 0;
 }
@@ -24,13 +23,13 @@ h1 {
     border-radius: 1rem;
     color: #fff;
     margin-left: 1rem;
-    font-size: 1.5rem; /* Relative to the base font size */
+    font-size: 1.5rem; 
 }
 
 .game {
     width: 90%;
-    max-width: 600px; /* Maximum width for larger screens */
-    height: auto; /* Adjust height based on width */
+    max-width: 600px;  
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -40,7 +39,7 @@ h1 {
     flex: 1 0 33.33%;
     overflow: hidden;
     position: relative;
-    padding-top: 33.33%; /* Aspect ratio 1:1 for holes */
+    padding-top: 33.33%; 
 }
 
 .hole:after {
@@ -83,12 +82,35 @@ button {
 }
 
 button:hover {
-    background-color: #005f73;
+    background-color: #5cf37f;
 }
 
-/* Media Queries for Different Screen Sizes */
+footer {
+    background: #4c99f2;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
 
-/* Tablets and smaller desktops */
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: darkblue;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+
 @media (min-width: 667px) and (max-width: 1024px) {
     h1 {
         display: none;
@@ -114,7 +136,6 @@ button:hover {
     }
 }
 
-/* Mobile devices */
 @media (max-width: 667px) {
     .game {
         width: 100%;
@@ -124,7 +145,7 @@ button:hover {
 
     .score {
         width: auto;
-        font-size: 0.875rem; /* Smaller font size */
+        font-size: 0.875rem; 
         height: auto;
         padding: 0.25rem;
         margin-left: 0.5rem;
@@ -134,7 +155,7 @@ button:hover {
     button {
         margin: 0.5rem;
         height: 40px;
-        width: 100px; /* Adjusted width for smaller screens */
+        width: 100px; 
         font-size: 0.875rem;
     }
 
