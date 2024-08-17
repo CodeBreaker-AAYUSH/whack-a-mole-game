@@ -6,8 +6,7 @@ let lastHole;
 let timeUp = false;
 let score = 0;
 
-// Create a function to generate a random time for the mole to pop from the hole
-function randomTime(min, max) {
+ function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
@@ -15,8 +14,7 @@ function randomHole(holes) {
     const index = Math.floor(Math.random() * holes.length);
     const hole = holes[index];
 
-    // Prevent the same hole from getting selected again consecutively
-    if (hole === lastHole) {
+     if (hole === lastHole) {
         return randomHole(holes);
     }
     lastHole = hole;
@@ -24,13 +22,13 @@ function randomHole(holes) {
 }
 
 function peep() {
-    const time = randomTime(500, 1000); // Get a random time to determine how long mole should peep
-    const hole = randomHole(holes); // Get the random hole from the randomHole function
-    hole.classList.add('up'); // Add the CSS class so the selected mole can "pop up"
+    const time = randomTime(500, 1000); 
+    const hole = randomHole(holes); 
+    hole.classList.add('up'); 
     setTimeout(() => {
-        hole.classList.remove('up'); // Make the selected mole "pop down" after a random time
+        hole.classList.remove('up'); 
         if (!timeUp) {
-            peep(); // Continue peeping if the game hasn't ended
+            peep(); 
         }
     }, time);
 }
@@ -40,18 +38,18 @@ function startGame() {
     timeUp = false;
     score = 0;
     peep();
-    backgroundMusic.play(); // Start playing the background music
+    backgroundMusic.play(); 
     setTimeout(() => {
         timeUp = true;
-        backgroundMusic.pause(); // Stop the background music after the game ends
-        backgroundMusic.currentTime = 0; // Reset the music to the beginning
-    }, 15000); // Show random moles for 15 seconds
+        backgroundMusic.pause(); 
+        backgroundMusic.currentTime = 0; 
+    }, 15000); 
 }
 
 function wack(e) {
-    if (!e.isTrusted) return; // Prevent fake clicks
+    if (!e.isTrusted) return; 
     score++;
-    this.parentNode.classList.remove('up'); // Remove the 'up' class from the clicked mole
+    this.parentNode.classList.remove('up'); 
     scoreBoard.textContent = score;
 }
 
